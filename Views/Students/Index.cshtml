@@ -3,9 +3,11 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var data = new Dictionary<string, string>();
+    data.Add("studentId", "1");
 }
 
-<h1>Index</h1>
+<h1>Index </h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,9 +15,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.id_note)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.marca)
             </th>
@@ -25,49 +24,29 @@
             <th>
                 @Html.DisplayNameFor(model => model.nume)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Note.nota1)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Note.nota2)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Note.media)
-            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_note)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.marca)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.prenume)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nume)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Note.nota1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Note.nota2)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Note.media)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.marca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.prenume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nume)
+                </td>
+                <td>
+                    <a asp-action="Create" asp-route-studentId="@item.id" asp-controller="Notes">Add note</a> |
+                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

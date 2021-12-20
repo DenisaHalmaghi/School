@@ -41,6 +41,8 @@ namespace WebApplication3.Controllers
                 return NotFound();
             }
 
+            student.Note = _context.Note.Where(nota => nota.id_student == id).ToList();
+
             return View(student);
         }
 

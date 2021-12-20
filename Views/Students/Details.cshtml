@@ -11,32 +11,71 @@
     <h4>Student</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.id_note)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.id_note)
-        </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.marca)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.marca)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.prenume)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.prenume)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.nume)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.nume)
         </dd>
     </dl>
 </div>
+<h4>Note:</h4>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Disciplina
+            </th>
+            <th>
+                Nota1
+            </th>
+            <th>
+                Nota2
+            </th>
+            <th>
+                Media
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Note)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.disciplina)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nota1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nota2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.media)
+                </td>
+                <td>
+                    <a asp-controller="Notes" asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                    <a asp-controller="Notes" asp-action="Details" asp-route-id="@item.id">Details</a> |
+                    <a asp-controller="Notes" asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
     <a asp-action="Index">Back to List</a>

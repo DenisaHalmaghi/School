@@ -7,12 +7,16 @@
 
 <h1>Create</h1>
 
-<h4>Note</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="id_student" class="control-label"></label>
+                <input asp-for="id_student" class="form-control" value="@ViewBag.studentId" />
+                <span asp-validation-for="id_student" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="disciplina" class="control-label"></label>
                 <input asp-for="disciplina" class="form-control" />

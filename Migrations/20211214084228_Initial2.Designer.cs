@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication3.Models;
 
 namespace WebApplication3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211214084228_Initial2")]
+    partial class Initial2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,13 +38,13 @@ namespace WebApplication3.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("media")
-                        .HasColumnType("decimal(3,1)");
+                        .HasColumnType("decimal(2,1)");
 
                     b.Property<decimal>("nota1")
-                        .HasColumnType("decimal(3,1)");
+                        .HasColumnType("decimal(2,1)");
 
                     b.Property<decimal>("nota2")
-                        .HasColumnType("decimal(3,1)");
+                        .HasColumnType("decimal(2,1)");
 
                     b.HasKey("id");
 

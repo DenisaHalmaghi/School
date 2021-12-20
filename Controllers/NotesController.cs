@@ -43,8 +43,9 @@ namespace WebApplication3.Controllers
         }
 
         // GET: Notes/Create
-        public IActionResult Create()
+        public IActionResult Create(int studentId)
         {
+            ViewBag.studentId = studentId;
             return View();
         }
 
@@ -53,7 +54,7 @@ namespace WebApplication3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,disciplina,nota1,nota2")] Note note)
+        public async Task<IActionResult> Create([Bind("id,disciplina,nota1,nota2,id_student")] Note note)
         {
             note.media = (note.nota1 + note.nota2) / 2;
             if (ModelState.IsValid)
